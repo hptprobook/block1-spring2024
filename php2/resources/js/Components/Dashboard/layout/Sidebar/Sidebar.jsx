@@ -1,4 +1,4 @@
-import { Link, router } from "@inertiajs/react";
+import { Link, router, usePage } from "@inertiajs/react";
 import DashboardIcon from "@mui/icons-material/Dashboard";
 import React, { useState } from "react";
 import SidebarButton from "../../common/SidebarButton/SidebarButton";
@@ -10,44 +10,44 @@ import CommentIcon from "@mui/icons-material/Comment";
 import LayersIcon from "@mui/icons-material/Layers";
 
 export default function Sidebar() {
-    const [activeTab, setActiveTab] = useState("Dashboard");
+    const { url } = usePage();
 
-    const handleTabClick = (tabName) => {
-        setActiveTab(tabName);
+    const isActive = (path) => {
+        const regex = new RegExp(`^${path}$`, "i");
+        return regex.test(url);
     };
 
     return (
         <aside
-            class="sidenav navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-3"
+            className="sidenav navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-3"
             id="sidenav-main"
         >
-            <div class="sidenav-header">
+            <div className="sidenav-header">
                 <i
-                    class="fas fa-times p-3 cursor-pointer text-secondary opacity-5 position-absolute end-0 top-0 d-none d-xl-none"
+                    className="fas fa-times p-3 cursor-pointer text-secondary opacity-5 position-absolute end-0 top-0 d-none d-xl-none"
                     aria-hidden="true"
                     id="iconSidenav"
                 ></i>
-                <Link class="navbar-brand m-0" href="#">
+                <Link className="navbar-brand m-0" href="#">
                     <img
                         src="https://demos.creative-tim.com/soft-ui-dashboard/assets/img/logo-ct-dark.png"
-                        class="navbar-brand-img h-100"
+                        className="navbar-brand-img h-100"
                         alt="main_logo"
                     />
-                    <span class="ms-1 font-weight-bold">
+                    <span className="ms-1 font-weight-bold">
                         HPT Blog Dashboard
                     </span>
                 </Link>
             </div>
-            <hr class="horizontal dark mt-0" />
+            <hr className="horizontal dark mt-0" />
             <div
-                class="collapse navbar-collapse w-auto"
+                className="collapse navbar-collapse w-auto"
                 id="sidenav-collapse-main"
             >
-                <ul class="navbar-nav">
+                <ul className="navbar-nav">
                     <SidebarButton
-                        onClick={() => handleTabClick("Dashboard")}
-                        href={route("dashboard.index")}
                         text={"Dashboard"}
+                        isActive={isActive("/dashboard")}
                         icon={
                             <DashboardIcon
                                 sx={{
@@ -55,12 +55,10 @@ export default function Sidebar() {
                                 }}
                             />
                         }
-                        isActive={activeTab === "Dashboard"}
+                        href={route("dashboard.index")}
                     />
                     <SidebarButton
                         text={"New Blog"}
-                        href={route("dashboard.blog.create")}
-                        onClick={() => handleTabClick("New Blog")}
                         icon={
                             <AddBoxIcon
                                 sx={{
@@ -68,10 +66,12 @@ export default function Sidebar() {
                                 }}
                             />
                         }
-                        isActive={activeTab === "New Blog"}
+                        isActive={isActive("/dashboard/create")}
+                        href="/dashboard/create"
                     />
                     <SidebarButton
                         text={"Blog List"}
+                        isActive={isActive("/dashboard/list")}
                         icon={
                             <FormatListBulletedIcon
                                 sx={{
@@ -79,9 +79,10 @@ export default function Sidebar() {
                                 }}
                             />
                         }
+                        href="/dashboard/list"
                     />
-                    <li class="nav-item mt-3">
-                        <h6 class="ps-4 ms-2 text-uppercase text-xs font-weight-bolder opacity-6">
+                    <li className="nav-item mt-3">
+                        <h6 className="ps-4 ms-2 text-uppercase text-xs font-weight-bolder opacity-6">
                             Blog
                         </h6>
                     </li>

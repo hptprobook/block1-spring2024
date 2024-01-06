@@ -32,6 +32,7 @@ Route::get('/', function () {
 
 Route::get("/dashboard", [DashboardController::class, 'index'])->name('dashboard.index');
 Route::get("/dashboard/create", [DashboardController::class, 'create'])->name('dashboard.blog.create');
+Route::get("/dashboard/list", [DashboardController::class, 'list'])->name('dashboard.blog.list');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

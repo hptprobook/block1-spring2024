@@ -37,7 +37,12 @@ class DashboardController extends Controller
      */
     public function show(string $id)
     {
-        //
+        return Inertia::render("Dashboard/ListPage/page");
+    }
+
+    public function list()
+    {
+        return Inertia::render("Dashboard/ListPage/page");
     }
 
     /**
