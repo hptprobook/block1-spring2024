@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CrawlController;
 use App\Http\Controllers\Dashboard\DashboardController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Foundation\Application;
@@ -25,6 +26,8 @@ Route::get('/', function () {
         'phpVersion' => PHP_VERSION,
     ]);
 });
+
+Route::get('/crawl', [CrawlController::class, 'crawl']);
 
 // Route::get('/dashboard', function () {
 //     return Inertia::render('Dashboard');

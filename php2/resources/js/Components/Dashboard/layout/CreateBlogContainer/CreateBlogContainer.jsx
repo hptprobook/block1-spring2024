@@ -1,4 +1,7 @@
+import MultipleAutoComplete from "@/Components/AutoComplete/Multiple/MultipleAutoComplete";
 import { ImageUpload } from "@/Components/ImageDnd/ImageUpload";
+import SelectWithCheckbox from "@/Components/Select/Checkbox/SelectWithCheckbox";
+import TinyMCE from "@/Components/TinyMCE/TinyMCE";
 import React from "react";
 
 export default function CreateBlogContainer() {
@@ -38,6 +41,27 @@ export default function CreateBlogContainer() {
                             </div>
                         </form>
                         <ImageUpload />
+                        <label className="mt-3">Blog Content</label>
+                        <TinyMCE />
+                        <label className="mt-3">Tag</label>
+                        <MultipleAutoComplete
+                            label={"Tag List"}
+                            placeholder={"Select blog's tags"}
+                        />
+                        <label htmlFor="" className="mt-3">
+                            Category
+                        </label>
+                        <SelectWithCheckbox />
+
+                        <button
+                            class="btn btn-icon btn-3 btn-primary mt-3 btn-lg"
+                            type="button"
+                        >
+                            <span class="btn-inner--icon">
+                                <i class="ni ni-button-play"></i>
+                            </span>
+                            <span class="btn-inner--text">Create blog</span>
+                        </button>
                     </div>
                 </div>
             </div>
