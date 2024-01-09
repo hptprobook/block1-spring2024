@@ -83,31 +83,11 @@ export default function Sidebar() {
                     />
                     <li className="nav-item mt-3">
                         <h6 className="ps-4 ms-2 text-uppercase text-xs font-weight-bolder opacity-6">
-                            Blog
+                            User
                         </h6>
                     </li>
                     <SidebarButton
-                        text={"Categories"}
-                        icon={
-                            <CategoryIcon
-                                sx={{
-                                    fontSize: "14px",
-                                }}
-                            />
-                        }
-                    />
-                    <SidebarButton
-                        text={"Tags"}
-                        icon={
-                            <TagIcon
-                                sx={{
-                                    fontSize: "14px",
-                                }}
-                            />
-                        }
-                    />
-                    <SidebarButton
-                        text={"Comments"}
+                        text={"New User"}
                         icon={
                             <CommentIcon
                                 sx={{
@@ -117,7 +97,57 @@ export default function Sidebar() {
                         }
                     />
                     <SidebarButton
-                        text={"Page"}
+                        text={"List User"}
+                        icon={
+                            <LayersIcon
+                                sx={{
+                                    fontSize: "14px",
+                                }}
+                            />
+                        }
+                    />
+                    <li className="nav-item mt-3">
+                        <h6 className="ps-4 ms-2 text-uppercase text-xs font-weight-bolder opacity-6">
+                            Category
+                        </h6>
+                    </li>
+                    <SidebarButton
+                        text={"New Category"}
+                        icon={
+                            <CategoryIcon
+                                sx={{
+                                    fontSize: "14px",
+                                }}
+                            />
+                        }
+                    />
+                    <SidebarButton
+                        text={"List Category"}
+                        icon={
+                            <TagIcon
+                                sx={{
+                                    fontSize: "14px",
+                                }}
+                            />
+                        }
+                    />
+                    <li className="nav-item mt-3">
+                        <h6 className="ps-4 ms-2 text-uppercase text-xs font-weight-bolder opacity-6">
+                            Tag
+                        </h6>
+                    </li>
+                    <SidebarButton
+                        text={"New Tag"}
+                        icon={
+                            <CommentIcon
+                                sx={{
+                                    fontSize: "14px",
+                                }}
+                            />
+                        }
+                    />
+                    <SidebarButton
+                        text={"List Tag"}
                         icon={
                             <LayersIcon
                                 sx={{
